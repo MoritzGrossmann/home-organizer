@@ -1,0 +1,12 @@
+# create a copy named application.yml and configure for local development
+
+spring:
+  datasource:
+    urL: "jdbc:mariadb://host:3306/db"
+    username: "user"
+    password: "pass"
+
+logging:
+  level:
+    root: warn
+    com.grossmann.apps.homeorganizer: info

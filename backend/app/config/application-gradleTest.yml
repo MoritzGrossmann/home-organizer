@@ -1,0 +1,16 @@
+spring:
+  # use embedded H2 database
+  datasource:
+    urL: ""
+    username: ""
+    password: ""
+
+  #jpa:
+    # show SQLs
+    #show-sql: true
+
+logging:
+  level:
+    root: info
+    com.grossmann.apps.homeorganizer: info
+
