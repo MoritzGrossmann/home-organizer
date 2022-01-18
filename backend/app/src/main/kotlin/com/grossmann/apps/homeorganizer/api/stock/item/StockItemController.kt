@@ -42,6 +42,14 @@ class StockItemController(
     return stockItemConverter.toGetStockItemDto(item)
   }
 
+  @GetMapping("{id}")
+  fun getById(@PathVariable id : Long) : GetStockItemWithCategoryDto {
+    val item = stockItemRepository.findById(id)
+      .orElseThrow { ResponseStatusException(HttpStatus.NOT_FOUND) }
+
+    return stockItemConverter.toGetStockItemDto(item)
+  }
+
   @PostMapping
   fun create(@RequestBody createStockItemDto: CreateStockItemDto) : GetStockItemWithCategoryDto {
     return stockItemConverter.toGetStockItemDto(

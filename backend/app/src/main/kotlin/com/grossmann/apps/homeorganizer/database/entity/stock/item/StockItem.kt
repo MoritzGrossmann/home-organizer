@@ -1,5 +1,6 @@
 package com.grossmann.apps.homeorganizer.database.entity.stock.item
 
+import com.grossmann.apps.homeorganizer.database.entity.stock.Barcode.Barcode
 import com.grossmann.apps.homeorganizer.database.entity.stock.category.StockCategory
 import org.springframework.data.jpa.domain.Specification
 import javax.persistence.*
@@ -28,6 +29,10 @@ class StockItem(
   @ManyToOne(fetch = FetchType.LAZY, optional = true)
   @JoinColumn(name = "category", insertable = false, updatable = false)
   var category: StockCategory? = null
+
+  @OneToMany(cascade = [CascadeType.ALL], fetch = FetchType.LAZY, orphanRemoval = true)
+  @JoinColumn(name = "stockitem")
+  val barcodes : List<Barcode> = listOf()
 
   object Spec {
     fun nameContains(name: String) : Specification<StockItem> {
