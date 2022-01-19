@@ -1,6 +1,6 @@
 package com.grossmann.apps.homeorganizer.service
 
-import com.grossmann.apps.homeorganizer.database.entity.stock.Barcode.Barcode
+import com.grossmann.apps.homeorganizer.database.entity.stock.barcode.Barcode
 import com.grossmann.apps.homeorganizer.database.entity.stock.item.StockItem
 import com.grossmann.apps.homeorganizer.database.respoitory.stock.BarcodeRepository
 import com.grossmann.apps.homeorganizer.database.respoitory.stock.StockItemRepository

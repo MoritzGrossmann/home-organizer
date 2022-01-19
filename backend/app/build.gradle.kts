@@ -32,6 +32,17 @@ dependencies {
   // https://mvnrepository.com/artifact/io.github.microutils/kotlin-logging-jvm
   implementation("io.github.microutils:kotlin-logging-jvm:2.1.21")
 
+  // https://mvnrepository.com/artifact/com.github.kittinunf.fuel/fuel
+  implementation("com.github.kittinunf.fuel:fuel:2.2.1")
+
+  // https://mvnrepository.com/artifact/com.github.kittinunf.fuel/fuel-jackson
+  implementation("com.github.kittinunf.fuel:fuel-jackson:2.3.1")
+
+  // https://mvnrepository.com/artifact/com.github.kittinunf.result/result
+  implementation("com.github.kittinunf.result:result:3.0.1")
+
+
+
   kapt("org.springframework.boot:spring-boot-configuration-processor")
   kapt("org.hibernate:hibernate-jpamodelgen")
 

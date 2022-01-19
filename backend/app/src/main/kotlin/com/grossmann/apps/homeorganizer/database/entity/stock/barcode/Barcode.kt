@@ -1,8 +1,6 @@
-package com.grossmann.apps.homeorganizer.database.entity.stock.Barcode
+package com.grossmann.apps.homeorganizer.database.entity.stock.barcode
 
-import com.grossmann.apps.homeorganizer.database.entity.stock.category.StockCategory
 import com.grossmann.apps.homeorganizer.database.entity.stock.item.StockItem
-import com.grossmann.apps.homeorganizer.database.entity.stock.item.StockItemStatus
 import org.springframework.data.jpa.domain.Specification
 import javax.persistence.*
 

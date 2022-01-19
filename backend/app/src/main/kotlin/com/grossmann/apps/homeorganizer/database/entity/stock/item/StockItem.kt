@@ -1,6 +1,6 @@
 package com.grossmann.apps.homeorganizer.database.entity.stock.item
 
-import com.grossmann.apps.homeorganizer.database.entity.stock.Barcode.Barcode
+import com.grossmann.apps.homeorganizer.database.entity.stock.barcode.Barcode
 import com.grossmann.apps.homeorganizer.database.entity.stock.category.StockCategory
 import org.springframework.data.jpa.domain.Specification
 import javax.persistence.*
@@ -10,7 +10,7 @@ import javax.persistence.*
   Index(columnList = "name")
 ])
 class StockItem(
-  var name: String?,
+  var name: String,
 
   @Column(name = "category")
   var categoryId: Long?,
