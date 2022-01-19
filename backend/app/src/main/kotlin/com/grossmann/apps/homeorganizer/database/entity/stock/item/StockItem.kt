@@ -32,7 +32,15 @@ class StockItem(
 
   @OneToMany(cascade = [CascadeType.ALL], fetch = FetchType.LAZY, orphanRemoval = true)
   @JoinColumn(name = "stockitem")
-  val barcodes : List<Barcode> = listOf()
+  val barcodes : MutableList<Barcode> = mutableListOf()
+
+  fun addBarcode(barcode : String) {
+    this.barcodes.add(Barcode(barcode))
+  }
+
+  fun addBarcode(barcode : Barcode) {
+    this.barcodes.add(barcode)
+  }
 
   object Spec {
     fun nameContains(name: String) : Specification<StockItem> {

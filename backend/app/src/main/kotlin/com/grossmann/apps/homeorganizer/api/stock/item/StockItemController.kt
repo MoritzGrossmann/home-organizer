@@ -7,6 +7,7 @@ import com.grossmann.apps.homeorganizer.database.entity.stock.item.dto.CreateSto
 import com.grossmann.apps.homeorganizer.database.entity.stock.item.dto.GetStockItemDto
 import com.grossmann.apps.homeorganizer.database.entity.stock.item.dto.GetStockItemWithCategoryDto
 import com.grossmann.apps.homeorganizer.database.respoitory.stock.StockItemRepository
+import com.grossmann.apps.homeorganizer.service.StockItemService
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.web.PageableDefault
@@ -20,7 +21,8 @@ import org.springframework.web.server.ResponseStatusException
 @CrossOrigin(originPatterns = ["http://localhost:*" ])
 class StockItemController(
   private val stockItemRepository: StockItemRepository,
-  private val stockItemConverter: ExtendedStockItemConverter
+  private val stockItemConverter: ExtendedStockItemConverter,
+  private val stockItemService: StockItemService,
   ) {
 
   @GetMapping
@@ -42,11 +44,10 @@ class StockItemController(
     return stockItemConverter.toGetStockItemDto(item)
   }
 
-  @GetMapping("{id}")
-  fun getById(@PathVariable id : Long) : GetStockItemWithCategoryDto {
-    val item = stockItemRepository.findById(id)
+  @GetMapping("barcode/{barcode}")
+  fun getFromBarcode(@PathVariable barecode : String) : GetStockItemWithCategoryDto {
+    val item = stockItemService.getStockItemFromBarcode(barecode)
       .orElseThrow { ResponseStatusException(HttpStatus.NOT_FOUND) }
-
     return stockItemConverter.toGetStockItemDto(item)
   }
 

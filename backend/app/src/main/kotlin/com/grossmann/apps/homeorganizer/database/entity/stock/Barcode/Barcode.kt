@@ -7,20 +7,25 @@ import org.springframework.data.jpa.domain.Specification
 import javax.persistence.*
 
 @Entity
-@Table(name = "barcode", indexes = [
-  Index(columnList = "barcode", name="narcode_index", unique = true)
+@Table(name = "stockbarcode", indexes = [
+  Index(columnList = "barcode", name="barcode_is_unique", unique = true)
 ])
 class Barcode(
 
   @Column(length = 15)
-  var barcode: String?,
-
-  @Column(name = "stockitem")
-  var stockItemId: Long?,
+  var barcode: String?
 ) {
+
+  constructor(barcode: String?, stockItemId: Long?) : this(barcode) {
+    this.stockItemId = stockItemId
+  }
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   val id: Long = 0
+
+  @Column(name = "stockitem")
+  var stockItemId: Long? = null
 
   @ManyToOne(fetch = FetchType.LAZY, optional = true)
   @JoinColumn(name = "stockitem", insertable = false, updatable = false)

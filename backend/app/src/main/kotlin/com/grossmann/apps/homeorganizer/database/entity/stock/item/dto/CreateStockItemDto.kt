@@ -14,7 +14,9 @@ data class CreateStockItemDto(
 
   var status : StockItemStatus = StockItemStatus.Full,
 
-  @JsonProperty("minumum_stock")
-  var minimumStock: Int? = null
+  @JsonProperty("minuimum_stock")
+  var minimumStock: Int? = null,
+
+  var barcode : String? = null
 
 ) : Serializable
